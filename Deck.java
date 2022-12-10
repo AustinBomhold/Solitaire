@@ -1,21 +1,21 @@
 public class Deck {
     private Card[] deck;
     private int cardsUsed;
-    public static final char[] SUITS = { 'C', 'D', 'H', 'S' };
+    public static final String[] SUITS = { "clubs", "diamonds", "hearts", "spades" };
     public static final char[] COLORS = { 'B', 'R' };
-    public static final char[] VALUES = {'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
+    public static final String[] VALUES = { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" };
 
     public Deck() {
         deck = new Card[52];
         int cardCt = 0; // How many cards have been created so far.
-            for (char suit : SUITS) {
-                if (suit == 'C' || suit == 'S'){
-                    for (char value : VALUES){
+            for (String suit : SUITS) {
+                if (suit == "clubs" || suit == "spades"){
+                    for (String value : VALUES){
                         deck[cardCt] = new Card('B', suit, value, false);
                         cardCt++;
                     }
                 } else {
-                    for (char value : VALUES){
+                    for (String value : VALUES){
                         deck[cardCt] = new Card('R', suit, value, false);
                         cardCt++;
                     }
@@ -44,4 +44,8 @@ public class Deck {
         cardsUsed++;
         return deck[cardsUsed - 1];
     }
+    
+    public Card[] getDeck() {
+		return deck;
+	}
 }
