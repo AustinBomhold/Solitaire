@@ -12,59 +12,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
-import solitaire.Deck;
-import solitaire.Foundation;
-import solitaire.Tableau;
-import solitaire.Waste;
 
 public class SolitairePanel extends JPanel {
 	
-	private static DeckUI deck;
-	private static Hands[] hands;
+	private static Deck deck;
+	private static Hand[] hand;
 	private static PillarsUI[] pillars;
 	private static Waste waste;
 	
-
 	public SolitairePanel() {
 		super.setLayout(null);
-//		deck = new DeckUI(20, 20);
 		super.setOpaque(false);
-		initializePiles();
-//		add(deck);
-//		DeckUI deck1= new DeckUI(0, 300);
-//		add(deck1);
-//		pillars();
-//		handAndWaste();
-//		table();
-	}
-	public void pillars() {
-		DeckUI deck1;
-		int a =0;
-		for(int i=0; i<4;i++) {
-			
-			int x=410+a; 
-			deck1= new DeckUI(x,20);
-			add(deck1);
-			
-			a= a+130;
-		}
-	}
-	public void handAndWaste() {
-		int a=0;
-		for(int j=0;j<2;j++) {
-			int x=20+a;
-			deck= new DeckUI(x, 20);
-			add(deck);
-			a= a+150;
-		}
+		dealNewGame();
 	}
 	
-	private void initializePiles() {
-		deck = new DeckUI(20,20);
+	private void dealNewGame() {
+		deck = new Deck(20,20);
 		add(deck);
 		waste = new Waste(170, 20);
 		add(waste);
-//		foundationPiles = new Foundation[4];
 		pillars = new PillarsUI[4];
 		int b = 0;
 		for(int i = 0; i < 4;i++) {
@@ -72,15 +38,11 @@ public class SolitairePanel extends JPanel {
 			add(pillars[i]);
 			b+=130;
 		}
-//		for(int i = 0; i < foundationPiles.length; ++i) {
-//			foundationPiles[i] = new Foundation(20 + XShift * i, 20, i + 1);
-//			add(foundationPiles[i]);
-//		}
 		int a = 0;
-		hands = new Hands[7];
-		for(int tableauIndex = 1; tableauIndex <= hands.length; ++tableauIndex) {
-			hands[tableauIndex - 1] = new Hands(20 + a,220,tableauIndex + 1);
-			add(hands[tableauIndex - 1]);
+		hand = new Hand[7];
+		for(int index = 1; index <= hand.length; ++index) {
+			hand[index - 1] = new Hand(20 + a,220,index + 1);
+			add(hand[index - 1]);
 			a+=130;
 		}
 	}
@@ -89,12 +51,12 @@ public class SolitairePanel extends JPanel {
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		g.setColor(Color.GREEN);
+		g.setColor(new Color(10, 132, 41));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		
 	}
 	
-	public static DeckUI getDeck() {
+	public static Deck getDeck() {
 		return deck;
 	}
 }

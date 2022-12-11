@@ -15,18 +15,18 @@ public class Pillars extends Checks {
     }
 
     // Add a card to the pillar
-    public void addCard(Card card, char suit) {
+    public void addCard(Card card, Stack<Card> suit) {
         if(canMoveCardToPillar(card, suit)){
-            if(suit == 'C'){
+            if(card.getSuit() == "clubs"){
                 Clubs.push(card);
             }
-            else if(suit == 'D'){
+            else if(card.getSuit() == "diamonds"){
                 Diamonds.push(card);
             }
-            else if(suit == 'H'){
+            else if(card.getSuit() == "hearts"){
                 Hearts.push(card);
             }
-            else if(suit == 'S'){
+            else if(card.getSuit() == "kings"){
                 Spades.push(card);
             }
         }

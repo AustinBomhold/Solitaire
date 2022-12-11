@@ -16,11 +16,10 @@ public class DeckUI extends Pillar {
 	 public DeckUI(int x, int y) {
 		 super(x, y);
 		 super.setSize(110,150);
-		 Deck deck = new Deck();
-		 deck.shuffle();
-		 for(Card card : deck.getDeck()) {
-			 push(card);
-		 }
+//		 Deck deck = new Deck(20, 20);
+//		 for(Card card : deck.getDeck()) {
+//			 push(card);
+//		 }
 		 
 	 }
 
@@ -32,12 +31,7 @@ public class DeckUI extends Pillar {
 		g2d.setColor(Color.WHITE);
 		g2d.drawRect(0, 0, this.getWidth(), this.getHeight());
 		CardUI cards= new CardUI();
-//		Deck deck = new Deck();
-//		deck.shuffle();
-//		Card card = deck.dealCard();
-//		System.out.println(card);
 		g.drawImage(cards.getCardBackImage(),0,0,this.getWidth(),this.getHeight(),this);
-//		g.drawImage(cards.getCardImage(card.getValue(),card.getSuit()),0,0,this.getWidth(),this.getHeight(),this);
 		
 		 g2d.setColor(Color.red);
 		 g2d.fillRect(0, 300, 1200, 700);

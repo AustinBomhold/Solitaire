@@ -4,8 +4,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import images.*;
-import solitaire.Card;
+
 public class CardUI {
 
 	public Image getCardBackImage() {

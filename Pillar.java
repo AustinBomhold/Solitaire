@@ -37,4 +37,8 @@ public abstract class Pillar extends JPanel {
 	public boolean isEmpty() {
 		return this.cards.isEmpty();
 	}
+	
+	public Card getCardByIndex(int index) {
+		return this.cards.get(index);
+	}
 }
