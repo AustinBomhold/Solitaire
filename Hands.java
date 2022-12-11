@@ -3,6 +3,10 @@ import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
+/*
+ * Comment
+ */
+
 
 public class Hands extends Pillar {
 	

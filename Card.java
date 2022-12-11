@@ -2,16 +2,20 @@
 public class Card {
     // public static final int SPADES = 0;
 
-    public static final String[] SUITS = { "spades","hearts", "clubs", "diamonds" };
+    public static final char[] SUITS = { 'S', 'H', 'D', 'C' };
     public static final char[] COLORS = { 'B', 'R' };
-    public static final String[] VALUES = { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" };
+    public static final char[] VALUES = { 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' };
+    // public static final String[] SUITS = { "spades","hearts", "clubs", "diamonds" };
+    // public static final char[] COLORS = { 'B', 'R' };
+    // public static final String[] VALUES = { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" };
+    
     private char color;
-    private String suit;
-    private String value;
+    private char suit;
+    private char value;
     public boolean isFaceUp;
 
     // Constructor
-    public Card(char color, String suit, String value, boolean isFaceUp) {
+    public Card(char color, char suit, char value, boolean isFaceUp) {
         setColor(color);
         setSuit(suit);
         setValue(value);
@@ -23,15 +27,19 @@ public class Card {
         return color;
     }
 
-    public String getSuit() {
+    public char getSuit() {
         return suit;
     }
 
-    public String getValue() {
+    public char getValue() {
         return value;
     }
 
     public boolean getFaceUp() {
+        return isFaceUp;
+    }
+
+    public boolean isFaceUp() {
         return isFaceUp;
     }
 
@@ -45,8 +53,8 @@ public class Card {
         this.color = color;
     }
 
-    public void setSuit(String suit) {
-        if (suit == "clubs" || suit == "diamonds" || suit == "hearts" || suit == "spades") {
+    public void setSuit(char suit) {
+        if (suit == 'C' || suit == 'D' || suit == 'H' || suit == 'S') {
             this.suit = suit;
         } else {
             throw new IllegalArgumentException("Suit must be C, D, H, or S");
@@ -55,8 +63,8 @@ public class Card {
     }
 
     // [A,2,3,4,5,6,7,8,9,T,J,Q,K]
-    public void setValue(String value) {
-        for (String c : new String[] { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" }) {
+    public void setValue(char value) {
+        for (char c : new char[] { 'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K' }) {
             if (value == c) {
                 this.value = value;
                 return;
@@ -64,6 +72,17 @@ public class Card {
         }
         throw new IllegalArgumentException("Value must be A,2,3,4,5,6,7,8,9,T,J,Q,K");
     }
+
+    // // [A,2,3,4,5,6,7,8,9,T,J,Q,K]
+    // public void setValue(String value) {
+    //     for (String c : new String[] { "ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "jack", "queen", "king" }) {
+    //         if (value == c) {
+    //             this.value = value;
+    //             return;
+    //         }
+    //     }
+    //     throw new IllegalArgumentException("Value must be A,2,3,4,5,6,7,8,9,T,J,Q,K");
+    // }
 
     public void setFaceUp(boolean isFaceUp) {
         this.isFaceUp = isFaceUp;
@@ -74,31 +93,31 @@ public class Card {
     // that is set when the value is set
     public int getRank() {
         switch (value) {
-            case "ace":
+            case 'A':
                 return 0;
-            case "2":
+            case '2':
                 return 1;
-            case "3":
+            case '3':
                 return 2;
-            case "4":
+            case '4':
                 return 3;
-            case "5":
+            case '5':
                 return 4;
-            case "6":
+            case '6':
                 return 5;
-            case "7":
+            case '7':
                 return 6;
-            case "8":
+            case '8':
                 return 7;
-            case "9":
+            case '9':
                 return 8;
-            case "10":
+            case 'T':
                 return 9;
-            case "jack":
+            case 'J':
                 return 10;
-            case "queen":
+            case 'Q':
                 return 11;
-            case "king":
+            case 'K':
                 return 12;
             default:
                 throw new IllegalArgumentException("Value must be A,2,3,4,5,6,7,8,9,T,J,Q,K");
@@ -110,4 +129,17 @@ public class Card {
     public String toString() {
         return value + ' ' + suit + " [color=" + color + ", suit=" + suit + ", value=" + value + "]";
     }
+
+    //to Short String with face up or down
+    public String toShortString() {
+        if (this.isFaceUp) {
+            return "[" + value + " " + suit + "]";
+        } else {
+            return "[XX X]";
+        }
+    }
+
+
+
+
 }
