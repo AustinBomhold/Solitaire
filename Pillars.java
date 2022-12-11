@@ -6,65 +6,95 @@ public class Pillars extends Checks {
     private Stack<Card> Diamonds;
     private Stack<Card> Hearts;
     private Stack<Card> Spades;
+    private HashMap<Character, Stack<Card>> Suits;
 
+    //Revision 2
+    // (Zander) Created an arraylist called "Suits" which contains the suit stacks
     public Pillars() {
         Clubs = new Stack<Card>();
         Diamonds = new Stack<Card>();
         Hearts = new Stack<Card>();
         Spades = new Stack<Card>();
+        Suits = new HashMap<>();
+        Suits.put('H', Hearts);
+        Suits.put('D', Diamonds);
+        Suits.put('C', Clubs);
+        Suits.put('S', Spades);
     }
 
+    //Revision 2
     // Add a card to the pillar
     public void addCard(Card card, char suit) {
-        if(canMoveCardToPillar(card, suit)){
-            if(suit == 'C'){
-                Clubs.push(card);
-            }
-            else if(suit == 'D'){
-                Diamonds.push(card);
-            }
-            else if(suit == 'H'){
-                Hearts.push(card);
-            }
-            else if(suit == 'S'){
-                Spades.push(card);
-            }
+        if(canMoveCardToPillar(card, Suits.get(suit))){
+            Suits.get(suit).add(card);
         }
     }
 
+    //Revision 2
     // Remove the top card of the pillar
     public Card removeCard(char suit) {
-        if(suit == 'C'){
-            return Clubs.pop();
-        } else if(suit == 'D'){
-            return Diamonds.pop();
-        } else if(suit == 'H'){
-            return Hearts.pop();
-        } else if(suit == 'S'){
-            return Spades.pop();
-        } else {
+        try {
+            return Suits.get(suit).pop();
+        } catch (Exception IllegalArgumentException) {
             throw new IllegalArgumentException("Must be a valid suit (C, D, H, S) and a char type not a string");
         }
     }
 
-    // Peak at all the top cards of the pillars
-    public HashMap<Character, Card> peakCardsAsHashMap() {
-        HashMap<Character, Card> cards = new HashMap<Character, Card>();
-        cards.put('C', Clubs.peek());
-        cards.put('D', Diamonds.peek());
-        cards.put('H', Hearts.peek());
-        cards.put('S', Spades.peek());
-        return cards;
+    //Revision 2
+    //Determin if a pillar is empty
+    public boolean isEmpty(char suit){
+        try {
+            return Suits.get(suit).isEmpty();
+        } catch (Exception IllegalArgumentException) {
+            throw new IllegalArgumentException("Must be a valid suit (C, D, H, S) and a char type not a string");
+        }
     }
 
-    // Peak at all the top cards of the pillars
-    public ArrayList<Card> peakCardsAsArrayList() {
-        ArrayList<Card> cards = new ArrayList<Card>();
-        cards.add(Clubs.peek());
-        cards.add(Diamonds.peek());
-        cards.add(Hearts.peek());
-        cards.add(Spades.peek());
-        return cards;
+    //Get Suits
+    public HashMap<Character,Stack<Card>> getSuits() {
+        return Suits;        
     }
+
+    // Revision 2
+    // Peak at all the top cards of the pillars
+    public HashMap<Character, Card> peakTopCardsAsHashMap() {
+        HashMap<Character, Card> topCards = new HashMap<Character, Card>();
+        try{
+            topCards.put('C', Clubs.peek());
+        } catch (EmptyStackException e) {
+            topCards.put('C', null);
+        }
+        try{
+            topCards.put('D', Diamonds.peek());
+        } catch (EmptyStackException e) {
+            topCards.put('D', null);
+        }
+        try{
+            topCards.put('H', Hearts.peek());
+        } catch (EmptyStackException e) {
+            topCards.put('H', null);
+        }
+        try{
+            topCards.put('S', Spades.peek());
+        } catch (EmptyStackException e) {
+            topCards.put('S', null);
+        }
+        return topCards;
+    }
+
+    //Delete?
+    // Peak at all the top cards of the pillars
+    // public ArrayList<Card> peakCardsAsArrayList() {
+    //     ArrayList<Card> cards = new ArrayList<Card>();
+    //     cards.add(Clubs.peek());
+    //     cards.add(Diamonds.peek());
+    //     cards.add(Hearts.peek());
+    //     cards.add(Spades.peek());
+    //     return cards;
+    // }
     
+
+
+
+
 }
