@@ -1,15 +1,14 @@
 **TODO:**
 - Debug
 
-Checks
-- canRemoveSeriesFromColumn() //read comments in class
-
 **Known Bugs:**
 - 
 - 
+
+**Complete**
+- Data Structures
+- Checks
 - 
-
-
 
 **Second Revision Completed For:**
 Data Structures
@@ -18,7 +17,7 @@ Data Structures
 - Hand
 - Pillars
 - Player
-- Table
+- Table 
 
 - Finished game play loop
 
