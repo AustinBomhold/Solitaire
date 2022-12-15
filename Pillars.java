@@ -81,20 +81,4 @@ public class Pillars extends Checks {
         }
         return topCards;
     }
-
-    //Delete?
-    // Peak at all the top cards of the pillars
-    // public ArrayList<Card> peakCardsAsArrayList() {
-    //     ArrayList<Card> cards = new ArrayList<Card>();
-    //     cards.add(Clubs.peek());
-    //     cards.add(Diamonds.peek());
-    //     cards.add(Hearts.peek());
-    //     cards.add(Spades.peek());
-    //     return cards;
-    // }
-    
-
-
-
-
 }

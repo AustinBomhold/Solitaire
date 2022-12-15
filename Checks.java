@@ -62,7 +62,7 @@ public abstract class Checks {
     }
 
     // Check if a series of cards (Starting from the last card at 1 to numCards) can be removed from a given column
-	public boolean canRemoveSeriesFromColumn(int numCards, LinkedList<Card> column) {
+	public static boolean canRemoveSeriesFromColumn(int numCards, LinkedList<Card> column) {
     	if (column.isEmpty()) {
     		return false;
 		} else if (numCards <= 0) {
@@ -94,16 +94,3 @@ public abstract class Checks {
 	    return true;
     }
 }
-
-	//Delete?
-    // // Check if there are any valid moves remaining
-	// // This method only checks if the player can put down or pick up a given card or series. It needs to check if the player can make any more moves.
-	// // 
-	// // 1. Are there cards in the hand that they could draw? (maybe do or don't include the waste pile, because they'll always be able to draw from the waste pile)
-	// // 2. Are there cards cards on the table that they could pick up?
-    // public static boolean validMovesLeft(Card card, ArrayList<LinkedList<Card>> Columns, LinkedList<Card> cards, ArrayList<Stack<Card>> Suits) {
-    // 	if (!canMoveCardToTable(card, Columns) && !canMoveSeriesToTable(cards, Columns) && !canRemoveCardFromTable(card, Columns) && !canRemoveSeriesFromTable(cards, Columns) && !canMoveCardToPillars(card, Suits)) {
-    // 		return false;
-    // 	}
-    //     return true;
-    // }
