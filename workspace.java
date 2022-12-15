@@ -5,13 +5,13 @@ public class workspace {
         // Shuffle the deck
         deck.shuffle();
         // Deal the cards
-        Hand hand = new Hand();
+        Hand hand = new Hand(20,220,7);
         for (int i = 0; i < 5; i++) {
             hand.addCard(deck.dealCard());
         }
         // Print the hand
         System.out.println(hand);
-        char x = hand.revealCard().getValue();
+        String x = hand.revealCard().getValue();
 
         // Print the value of the revealed card
 
