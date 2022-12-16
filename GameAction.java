@@ -14,7 +14,9 @@ public class GameAction extends MouseInputAdapter {
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		//Initial component that be pressed
 		Component mousePressedComponent = e.getComponent().getComponentAt(e.getPoint());
+		//check what type of the component and do action base on that
 		if(mousePressedComponent instanceof Pillars) {
 			pillars = (Pillars) mousePressedComponent;
 			hand = null;
@@ -23,6 +25,7 @@ public class GameAction extends MouseInputAdapter {
 		}else if(mousePressedComponent instanceof Hand) {
 			hand = (Hand) mousePressedComponent;
 			waste = null;
+			//Get card base on the current Y clicked
 			card = hand.getClickedCard(e.getY() - 250);
 			for(Pillars Pillars : SolitairePanel.getPillarsArray()) {
 				if(hand.canMove(Pillars, card)) {
@@ -47,14 +50,16 @@ public class GameAction extends MouseInputAdapter {
 				}
 			}
 		}
-		
+		//updated
 		e.getComponent().repaint();
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(card != null) {
+			//Initial component that be released
 			Component mouseReleasedComponent = e.getComponent().getComponentAt(e.getPoint());
+			//check what type of the component and do action base on that
 			if(mouseReleasedComponent instanceof Hand) {
 				if(waste != null) {
 					Hand hand = (Hand) mouseReleasedComponent;
@@ -77,7 +82,7 @@ public class GameAction extends MouseInputAdapter {
 				}
 			}
 		}
-		
+		//update when done
 		e.getComponent().repaint();
 		card = null;
 		pillars = null;

@@ -110,6 +110,7 @@ public class Hand extends Pillar {
         return str;
     }
     
+    //Setup UI for this class
     @Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);

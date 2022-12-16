@@ -27,6 +27,7 @@ public class Deck extends Pillar {
 	            }
         	}
         }
+        //Call library to do the shuffle
         Collections.shuffle(cards);
         deck = new Card[52];
         int cardCt = 0; // How many cards have been created so far.
@@ -68,6 +69,7 @@ public class Deck extends Pillar {
         return deck[cardsUsed - 1];
     }
     
+    //Setup UI for the class
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
