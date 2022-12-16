@@ -1,4 +1,5 @@
-import java.awt.Graphics;
+import java.awt.*;
+import java.util.*;
 
 
 public class PillarsUI extends Pillar {
@@ -10,6 +11,7 @@ public class PillarsUI extends Pillar {
 		super.setSize(110, 150);
 		this.suit = suit;
 	}
+
 
 	@Override
 	protected void paintComponent(Graphics g) {
