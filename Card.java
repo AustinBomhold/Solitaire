@@ -35,13 +35,10 @@ public class Card {
         return value;
     }
 
-    public boolean getFaceUp() {
+    public boolean getFace() {
         return isFaceUp;
     }
 
-    public boolean isFaceUp() {
-        return isFaceUp;
-    }
 
     // Setters
     public void setColor(char color) {
@@ -93,7 +90,7 @@ public class Card {
     // that is set when the value is set
     public int getRank() {
         switch (value) {
-            case "A":
+            case "ace":
                 return 0;
             case "2":
                 return 1;
@@ -111,13 +108,13 @@ public class Card {
                 return 7;
             case "9":
                 return 8;
-            case "T":
+            case "10":
                 return 9;
-            case "J":
+            case "jack":
                 return 10;
-            case "Q":
+            case "queen":
                 return 11;
-            case "K":
+            case "king":
                 return 12;
             default:
                 throw new IllegalArgumentException("Value must be A,2,3,4,5,6,7,8,9,T,J,Q,K");

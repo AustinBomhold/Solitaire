@@ -12,18 +12,20 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.text.StyledEditorKit.ForegroundAction;
 
-
 public class SolitairePanel extends JPanel {
 	
 	private static Deck deck;
 	private static Hand[] hand;
-	private static PillarsUI[] pillars;
+	private static Pillars[] pillars;
 	private static Waste waste;
 	
 	public SolitairePanel() {
 		super.setLayout(null);
 		super.setOpaque(false);
 		dealNewGame();
+		GameAction gameAction = new GameAction();
+		addMouseListener(gameAction);
+		addMouseMotionListener(gameAction);
 	}
 	
 	private void dealNewGame() {
@@ -31,10 +33,10 @@ public class SolitairePanel extends JPanel {
 		add(deck);
 		waste = new Waste(170, 20);
 		add(waste);
-		pillars = new PillarsUI[4];
+		pillars = new Pillars[4];
 		int b = 0;
 		for(int i = 0; i < 4;i++) {
-			pillars[i] = new PillarsUI(410+b,20,i+1);
+			pillars[i] = new Pillars(410+b,20,i+1);
 			add(pillars[i]);
 			b+=130;
 		}
@@ -58,5 +60,13 @@ public class SolitairePanel extends JPanel {
 	
 	public static Deck getDeck() {
 		return deck;
+	}
+	
+	public static Waste getWaste() {
+		return waste;
+	}
+	
+	public static Pillars[] getPillarsArray () {
+		return pillars;
 	}
 }

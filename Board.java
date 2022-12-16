@@ -7,11 +7,11 @@ import java.util.*;
  * 
  */
 
-public class Board extends Player {
-    private static Table table;
-    private static Pillars pillars;
-    private static Hand hand;
-    private static Waste waste;
+public class Board {
+//    private static Table table;
+//    private static Pillars pillars;
+//    private static Hand hand;
+//    private static Waste waste;
 
     public static void main(String[] args) {
         SolitaireFrame solitaireFrame = new SolitaireFrame();
@@ -22,7 +22,7 @@ public class Board extends Player {
 //        hand = new Hand();
 //        waste = new Waste();
 
-        Player player = new Player();
+//        Player player = new Player();
 //        dealNewGame();
 
         // Gamplay Loop
