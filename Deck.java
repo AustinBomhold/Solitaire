@@ -27,6 +27,7 @@ public class Deck extends Pillar {
 	            }
         	}
         }
+        //Call library to do the shuffle
         Collections.shuffle(cards);
         deck = new Card[52];
         int cardCt = 0; // How many cards have been created so far.
@@ -68,18 +69,18 @@ public class Deck extends Pillar {
         return deck[cardsUsed - 1];
     }
     
+    //Setup UI for the class
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.setStroke(new BasicStroke());
+		g2d.setStroke(new BasicStroke(10));
 		g2d.setColor(Color.WHITE);
-		g2d.drawRect(0, 0, this.getWidth(), this.getHeight());
+		g2d.drawRect(0, 0, 110, this.getHeight());
 		CardUI cards= new CardUI();
-		g.drawImage(cards.getCardBackImage(),0,0,this.getWidth(),this.getHeight(),this);
-		
-		 g2d.setColor(Color.red);
-		 g2d.fillRect(0, 300, 1200, 700);
+		if (!isEmpty()) {
+			g.drawImage(cards.getCardBackImage(),0,0,this.getWidth(),this.getHeight(),this);
+		}
 	}
 
     public Card[] getDeck() {

@@ -97,13 +97,13 @@ public class Table extends Checks{
 
     //Revision 2
     // Print a column of the table
-//    public String columntoString(int column) {
-//        String temp = "";
-//        for (Card card : Columns.get(column)) {
-//            temp += card.toShortString() + "\n";
-//        }
-//        return temp;
-//    }
+   public String columntoString(int column) {
+       String temp = "";
+       for (Card card : Columns.get(column)) {
+           temp += card.toShortString() + "\n";
+       }
+       return temp;
+   }
 
     //Revision 2
     // Get the number of cards in a column

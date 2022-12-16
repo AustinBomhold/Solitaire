@@ -13,9 +13,6 @@ public class SolitaireFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		solitairePanel = new SolitairePanel();
 		solitairePanel.setPreferredSize(new Dimension(PANEL_WIDTH,PANEL_HEIGHT));
-//		int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-//	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-//	    frame.setLocation(x, y);
 		add(solitairePanel);
 		pack();
 		CenteredFrame(this);

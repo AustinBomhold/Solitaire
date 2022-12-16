@@ -1,7 +1,10 @@
 import java.util.*;
 
-public abstract class Checks {
-	
+
+import javax.swing.JPanel;
+
+public abstract class Checks extends JPanel {
+
 	// Check if the card can be added to a given column
     public static boolean canMoveCardToColumn(Card card, LinkedList<Card> column) {
     	if (column.isEmpty()) {
@@ -47,7 +50,7 @@ public abstract class Checks {
 	}
     
     // Check if the card can be added to a pillar
-    public static boolean canMoveCardToPillar(Card card, Stack<Card> suit) {
+    public boolean canMoveCardToPillar(Card card, Stack<Card> suit) {
     	if (suit.isEmpty()) {
     		if (card.getValue() == "ace") {
     			return true;
@@ -75,10 +78,11 @@ public abstract class Checks {
 	   		while (lastUp.hasNext()) {
 				card = lastUp.next();
 	   			if (prev != null) {
-					if (!card.isFaceUp() || !(card.getRank() == prev.getRank() + 1) || card.getColor() == prev.getColor()) {
+
+					if (!card.getFace() || !(card.getRank() == prev.getRank() + 1) || card.getColor() == prev.getColor()) {
 						return false;
 					}
-				} else if (!card.isFaceUp()) {
+				} else if (!card.getFace()) {
 					return false;
 				}
 				prev = card;
