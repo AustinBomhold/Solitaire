@@ -5,7 +5,7 @@ public abstract class Checks {
 	// Check if the card can be added to a given column
     public static boolean canMoveCardToColumn(Card card, LinkedList<Card> column) {
     	if (column.isEmpty()) {
-    		if (card.getValue() == 'K') {
+    		if (card.getValue() == "kings") {
     			return true;
     		}
     	} else {
@@ -49,7 +49,7 @@ public abstract class Checks {
     // Check if the card can be added to a pillar
     public static boolean canMoveCardToPillar(Card card, Stack<Card> suit) {
     	if (suit.isEmpty()) {
-    		if (card.getValue() == 'A') {
+    		if (card.getValue() == "ace") {
     			return true;
     		}
     	} else {

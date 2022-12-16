@@ -2,13 +2,16 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.util.*;
 
-public class Hand extends Pillar{
-    private int count;
+/*
+ * Comment
+ */
 
-    public Hand(int x, int y, int initSize) {
-    	super(x, y);
+
+public class Hands extends Pillar {
+	
+	public Hands(int x, int y, int initSize) {
+		super(x, y);
 		super.setSize(110, 500);
 		super.setOpaque(false);
 		for (int i = 0; i < initSize; ++i) {
@@ -18,44 +21,10 @@ public class Hand extends Pillar{
 		if (initSize > 0) {
 			topCard().setFaceUp(true);
 		}
-        count = 0;
-    }
+	}
 
-    public void addCard(Card card) {
-        push(card);
-        count++;
-    }
-
-    public Card revealCard() {
-        return topCard();
-    }
-
-    public Card removeCard() {
-        count--;
-        return pop();
-    }
-
-    public Card getCard(int index) {
-        return getCardByIndex(index);
-    }
-
-    public int getCount() {
-        return count;
-    }
-
-//    public boolean isEmpty() {
-//        return isEmpty();
-//    }
-
-    public String toString() {
-        String str = "";
-        for (int i = 0; i < count; i++) {
-            str += getCardByIndex(i) + " ";
-        }
-        return str;
-    }
-    
-    @Override
+	
+	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2d = (Graphics2D) g;
@@ -68,9 +37,7 @@ public class Hand extends Pillar{
 		CardUI cardUI = new CardUI();
 		int cardYPos = 0;
 		if (this.isEmpty()) {
-			
-		} 
-		else {
+		} else {
 			for (Card c : this.cards) {
 				if (c.getFaceUp()) {
 					g.drawImage(cardUI.getCardImage(c.getValue(),c.getSuit()), 0, cardYPos, 110, 150, this);
@@ -83,4 +50,3 @@ public class Hand extends Pillar{
 		}
 	}
 }
-
