@@ -24,26 +24,9 @@ public class Pillars extends Checks {
 
     //Revision 2
     // Add a card to the pillar
-<<<<<<< HEAD
-    public void addCard(Card card, Stack<Card> suit) {
-        if(canMoveCardToPillar(card, suit)){
-            if(card.getSuit() == "clubs"){
-                Clubs.push(card);
-            }
-            else if(card.getSuit() == "diamonds"){
-                Diamonds.push(card);
-            }
-            else if(card.getSuit() == "hearts"){
-                Hearts.push(card);
-            }
-            else if(card.getSuit() == "kings"){
-                Spades.push(card);
-            }
-=======
     public void addCard(Card card, char suit) {
         if(canMoveCardToPillar(card, Suits.get(suit))){
             Suits.get(suit).add(card);
->>>>>>> refs/remotes/origin/thuong_branch
         }
     }
 

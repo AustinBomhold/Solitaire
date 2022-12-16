@@ -1,7 +1,7 @@
 public class workspace {
     public static void main(String[] args) {
         // Create a deck of cards
-        Deck deck = new Deck();
+        Deck deck = new Deck(1,1);
         // Shuffle the deck
         deck.shuffle();
         // Deal the cards
